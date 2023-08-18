@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,7 +26,7 @@ public class GameManager : MonoBehaviour
     float timeStart = 1f;
     public bool isGameOver = false;
 
-    void Awake() 
+    void Awake()
     {
         if (instance == null)
         {
@@ -39,21 +36,21 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("EXTRA" + this + "DELETED");
         }
-        
-        DisableScreens();    
+
+        DisableScreens();
     }
 
-    void Update() 
+    void Update()
     {
         switch (currentState)
         {
             case GameState.Gameplay:
                 UpdateScore();
                 break;
-            
+
             case GameState.Paused:
                 break;
-            
+
             case GameState.Gameover:
                 if (!isGameOver)
                 {
@@ -63,11 +60,11 @@ public class GameManager : MonoBehaviour
                     DisplayResults();
                 }
                 break;
-            
+
             default:
                 Debug.LogWarning("state does not exist");
                 break;
-        }    
+        }
     }
 
     public void ChangeState(GameState newState)

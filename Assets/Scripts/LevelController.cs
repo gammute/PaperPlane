@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,8 +8,6 @@ public class LevelController : MonoBehaviour
     public float checkerRadius;
     Vector3 noLevelPosition;
     public LayerMask levelMask;
-    Vector3 playerLastPosition;
-    PlayerMovement pm;
     public GameObject currentLevel;
 
     [Header("Optimization")]
@@ -19,12 +16,7 @@ public class LevelController : MonoBehaviour
     public float maxOpDistance;
     float opDist;
 
-    void Start() 
-    {
-        pm = FindObjectOfType<PlayerMovement>();
-    }
-
-    void Update() 
+    void Update()
     {
         LevelChecker();
         LevelOptimizer();

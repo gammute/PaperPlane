@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DragObject : MonoBehaviour
@@ -10,7 +8,7 @@ public class DragObject : MonoBehaviour
     {
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
-    private void OnMouseDrag() 
+    private void OnMouseDrag()
     {
         rb2D.MovePosition(GetMousePosition());
     }
@@ -22,7 +20,7 @@ public class DragObject : MonoBehaviour
         return mousePosition;
     }
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());

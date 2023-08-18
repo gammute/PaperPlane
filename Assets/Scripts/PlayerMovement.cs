@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public TMP_Text levelDisplay;
     public int currentLevel = 0;
 
-    void FixedUpdate() 
+    void FixedUpdate()
     {
         transform.Translate(direction.normalized * speed);
         levelDisplay.text = string.Format("Level: " + "{0}", currentLevel);
@@ -24,11 +22,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col) 
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("LevelUp"))
         {
-            currentLevel ++;
-        }    
+            currentLevel++;
+        }
     }
 }
