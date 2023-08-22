@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text scoreEndDisplay;
     public TMP_Text scoreDisplay;
+    public TMP_Text bestScoreDisplay;
     int score;
     float time;
     float timeStart = 1f;
@@ -103,12 +104,17 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        if (score > PlayerPrefs.GetInt("BestScore", 0))
+        {
+            PlayerPrefs.SetInt("BestScore", score);
+        }
         scoreEndDisplay.text = scoreDisplay.text;
         ChangeState(GameState.Gameover);
     }
 
     public void DisplayResults()
     {
+        bestScoreDisplay.text = string.Format("Best Score: " + "{0}", PlayerPrefs.GetInt("BestScore"));
         resultScreen.SetActive(true);
     }
 
