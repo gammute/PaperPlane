@@ -29,4 +29,11 @@ public class Enemy : MonoBehaviour
             player.Kill();
         }
     }
+
+    
+
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
+    }
 }
